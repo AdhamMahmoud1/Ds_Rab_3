@@ -1,20 +1,6 @@
 #pragma once
-#include <bits/stdc++.h>
-
-template <typename T>
-struct Bnode
-{
-    T data;
-    Bnode<T> *left;
-    Bnode<T> *right;
-    Bnode(T d)
-    {
-        data = d;
-        left = nullptr;
-        right = nullptr;
-    }
-};
-
+#include <iostream>
+#include "Bnode.h"
 template <typename T>
 class BST {
 private:
