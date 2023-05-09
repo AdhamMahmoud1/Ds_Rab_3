@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Bnode.h"
+#include "Bnode.hpp"
 template <typename T>
 class BST {
 private:
