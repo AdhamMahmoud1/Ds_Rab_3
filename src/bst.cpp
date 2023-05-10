@@ -7,7 +7,7 @@ template <typename T>
 Bnode<T> *BST<T>::insert(Bnode<T> *r, T element) {
     if (r == nullptr)
     {
-        Bnode<T> *newNode = new Bnode(element);
+        Bnode<T> *newNode = new Bnode<T>(element);
         r = newNode;
     }
     else if (element < r->data)
@@ -168,7 +168,24 @@ void BST<T>::postOrder(Bnode<T> *r)
     {
         return;
     }
-    inOrder(r->left);
-    inOrder(r->right);
+    postOrder(r->left);
+    postOrder(r->right);
     std::cout << r->data << " ";
+}
+template <typename T>
+void BST<T>::preOrder()
+{
+    preOrder(root);
+}
+
+template <typename T>
+void BST<T>::inOrder()
+{
+    inOrder(root);
+}
+
+template <typename T>
+void BST<T>::postOrder()
+{
+    postOrder(root);
 }
