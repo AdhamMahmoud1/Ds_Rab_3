@@ -5,8 +5,8 @@
 using namespace std;
 
 
-BST<Student> b_students;
-AVL<Student> students;
+BST<Student> bst_students;
+AVL<Student> avl_students;
 
 void getFileData();
 
@@ -26,12 +26,66 @@ int main()
 
   cout << "Choose one of the following options: \n";
   if(choice == 1){
+      while(true){
+        cout << " 1- Add Student \n 2- Remove Student \n 3- Search Student \n 4- print All(sorted by id) \n 5- Exit \n";
+        int option;
+        cin >> option;
+        int id;
+        string name ; string dep;
+        double GPA;
+        Student newStud = Student();
+        switch (option)
+        {
+          case 1:
+            cout << "Enter the id : ";
+            cin >> id;
+            cout << "\nEnter the name : ";
+            cin.ignore();
+            getline (cin , name);
+            cout << "\nEnter the GPA : ";
+            cin >> GPA;
+            cout << "\nEnter the Department : ";
+            cin >> dep;
+            newStud.setID(id); newStud.setName(name); newStud.setGPA(GPA);
+            newStud.setDepartment(dep);
+
+            bst_students.insert(newStud);
+
+            break;
+
+          case 2:
+            cout << "Enter the Student's ID to be removed : ";
+            cin >> id;
+            bst_students.Delete(id);
+            break;
+
+          case 3:
+            cout << "Enter the student ID: ";
+            int ID; 
+            cin >> ID;
+            if(bst_students.search(Student(ID))){
+              cout << "Student is found \n";
+            }else{
+              cout << "Student is NOT found \n";
+            }
+            break;
+          case 4:
+            cout << "\n ";
+            bst_students.inOrder();
+            cout << endl;
+          
+            break;
+
+          default:
+            break;
+        }
+      }
     
   }else if(choice == 2){
     while (true)
     {
-      /* code */
-      cout << " 1- Add Student \n 2- Remove Student \n 3- Search Student \n 4- print All(sorted by id) \n";
+      
+      cout << " 1- Add Student \n 2- Remove Student \n 3- Search Student \n 4- print All(sorted by id) \n 5- Exit \n";
       int option;
       cin >> option;
 
@@ -41,49 +95,51 @@ int main()
       Student newStud = Student();
       switch (option)
       {
-      case 1:
-        cout << "Enter the id : ";
-        cin >> id;
-        cout << "\nEnter the name : ";
-        cin.ignore();
-        getline (cin , name);
-        cout << "\nEnter the GPA : ";
-        cin >> GPA;
-        cout << "\nEnter the Department : ";
-        cin >> dep;
-        newStud.setID(id); newStud.setName(name); newStud.setGPA(GPA);
-        newStud.setDepartment(dep);
+        case 1:
+          cout << "Enter the id : ";
+          cin >> id;
+          cout << "\nEnter the name : ";
+          cin.ignore();
+          getline (cin , name);
+          cout << "\nEnter the GPA : ";
+          cin >> GPA;
+          cout << "\nEnter the Department : ";
+          cin >> dep;
+          newStud.setID(id); newStud.setName(name); newStud.setGPA(GPA);
+          newStud.setDepartment(dep);
 
-        students.insert(newStud);
+          avl_students.insert(newStud);
 
-        break;
+          break;
 
-      case 2:
-        cout << "Enter the Student's ID to be removed : ";
-        cin >> id;
-        students.Delete(id);
-        break;
+        case 2:
+          cout << "Enter the Student's ID to be removed : ";
+          cin >> id;
+          avl_students.Delete(id);
+          break;
 
-      case 3:
-        cout << "Enter the student ID: ";
-        int ID; 
-        cin >> ID;
-        if(students.search(Student(ID))){
-          cout << "Student is found \n";
-        }else{
-          cout << "Student is NOT found \n";
-        }
-        break;
-      case 4:
-        cout << "\n ";
-        students.inOrder();
-        cout << endl;
-      
-        break;
-      default:
-        break;
+        case 3:
+          cout << "Enter the student ID: ";
+          int ID; 
+          cin >> ID;
+          if(avl_students.search(Student(ID))){
+            cout << "Student is found \n";
+          }else{
+            cout << "Student is NOT found \n";
+          }
+          break;
+        case 4:
+          cout << "\n ";
+          avl_students.inOrder();
+          cout << endl;
+        
+          break;
+        default:
+          break;
+      }
     }
-    }
+  }else if(choice == 3){
+    
   }
 }
 
@@ -121,7 +177,10 @@ void getFileData(){
     getline(my_file, dep);
     st.setDepartment(dep);
     
-    students.insert(st);
+    avl_students.insert(st);
+    bst_students.insert(st);
+
+
     cout << st;
     // b_students.insert(st);
   }
