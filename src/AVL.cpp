@@ -104,3 +104,47 @@ void AVL<T>::insert(T element){
 
 
 
+template<typename T>
+Bnode<T> *AVL<T>::Delete(Bnode<T> *r, T element) {
+  if (!r) {
+    // element not found
+    cout << "NOT FOUND\n";
+    return r; 
+  }
+  if (element < r->data) {
+    r->left = Delete(r->left, element);
+  } else if (element > r->data) {
+    r->right = Delete(r->right, element);
+  } else { 
+    // element == r->data, found the node to delete
+    if (!r->left || !r->right) { 
+      // node has one child or no child
+      Bnode<T> *temp = r->left ? r->left : r->right;
+      if (!temp) {
+        // node has no child
+        temp = r;
+        r = nullptr;
+      } else { 
+        // node has one child
+        *r = *temp;
+      }
+      delete temp;
+    } else { 
+      Bnode<T> *temp = r->right;
+      while (temp->left) { 
+        temp = temp->left;
+      }
+      r->data = temp->data; 
+      r->right = Delete( r->right, temp->data ); 
+    }
+  }
+  if (!r) { // node was deleted
+    return r;
+  }
+  return balance(r);
+}
+
+template<typename T>
+void AVL<T>::Delete(T element){
+  BST<T>::root  = Delete(BST<T>::root, element);
+}

@@ -58,7 +58,11 @@ int main()
 
         break;
 
-      
+      case 2:
+        cout << "Enter the Student's ID to be removed : ";
+        cin >> id;
+        students.Delete(id);
+        break;
 
       case 3:
         cout << "Enter the student ID: ";
@@ -71,8 +75,9 @@ int main()
         }
         break;
       case 4:
-        // لسا معملتهاش تجربة بس
-        students.preOrder();
+        cout << "\n ";
+        students.inOrder();
+        cout << endl;
       
         break;
       default:
@@ -80,34 +85,6 @@ int main()
     }
     }
   }
-/*     BST<int> b;
-    b.insert(45);
-    b.insert(15);
-    b.insert(79);
-    b.insert(90);
-    b.insert(10);
-    b.insert(55);
-    b.insert(12);
-    b.insert(50);
-
-    cout << "Display the Tree Contenet: \n";
-    b.preOrder();
-
-    cout << "\nenter item to search for : ";
-    int key;
-    cin >> key;
-    if (b.search(key))
-    {
-        cout << "Item Found \n";
-    }
-    else
-    {
-        cout << "Item Not Found\n";
-    }
-
-    b.Delete(10);
-    b.preOrder();
- */
 }
 
 void getFileData(){
@@ -145,7 +122,7 @@ void getFileData(){
     st.setDepartment(dep);
     
     students.insert(st);
-    cout << id << " " << dep << " " << name << " " << gpa << endl;
+    cout << st;
     // b_students.insert(st);
   }
   cout << "finished reading from the file \n";

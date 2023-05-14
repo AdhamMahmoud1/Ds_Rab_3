@@ -57,7 +57,7 @@ bool operator<= (const Student& s1, const Student& s2){
 }
 
 ostream& operator<<(ostream& os, const Student& s){
-  os << s.id;
+  os << s.id << " " << s.name << " " << s.department << " " << s.GPA << endl;
   return os;
 }
 

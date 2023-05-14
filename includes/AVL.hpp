@@ -10,6 +10,7 @@ template<typename T>
 class AVL : public BST<T>{
 private:
   Bnode<T> *insert(Bnode<T> *r, T element);
+  Bnode<T> *Delete(Bnode<T> *, T element);
 
 public:
 
@@ -23,6 +24,7 @@ public:
   Bnode<T> * rl_rotation(Bnode<T> *);
   Bnode<T> * balance(Bnode<T> *);
   void insert(T element);
+  void Delete(T element);
 
 /* 
   // functions for the Student class specificaly
