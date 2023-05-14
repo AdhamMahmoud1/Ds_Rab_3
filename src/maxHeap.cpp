@@ -86,10 +86,9 @@ void Heap<T>::remove(T element) {
 
 template <typename T>
 void Heap<T>::printHeap() {
-    sortHeap();
+    heapSort();
     for (int i = 0; i < heap.size(); i++){
         std::cout << heap[i] << " ";
     }
     std::cout << std::endl;
 }
-

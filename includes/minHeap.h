@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-//
-// Created by mahmo on 5/14/2023.
-//
-
-#ifndef DS_RAB_3_MINHEAP_H
-#define DS_RAB_3_MINHEAP_H
-
-#endif //DS_RAB_3_MINHEAP_H
-=======
 //
 // Created by Adham on 5/13/2023.
 //
@@ -31,4 +21,3 @@ public:
 
     void remove(T element);
 };
->>>>>>> 6f13064a36c36ca7a34fe93ecaf951163b2cd099
