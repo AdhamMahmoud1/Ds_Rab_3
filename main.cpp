@@ -23,7 +23,6 @@ int main()
   getFileData();
 
 
-
   cout << "Choose the Data Structure : \n";
 
   cout << " 1- BST\n 2-AVL \n 3- min Heap \n 4- max Heap\n";
