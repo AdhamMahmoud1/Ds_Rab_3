@@ -87,7 +87,7 @@ void minHeap<T>::remove(T element) {
 template <typename T>
 void minHeap<T>::printHeap() {
     for (int i = 0; i < heap.size(); i++){
-        std::cout << heap[i] << " ";
+        std::cout << heap[i];
     }
     std::cout << std::endl;
 }

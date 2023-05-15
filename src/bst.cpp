@@ -317,7 +317,7 @@ void BST<T>::preOrder(Bnode<T>* subTreeRoot)
     else
     {
         // root left right
-        cout << subTreeRoot->data << "\t";
+        cout << subTreeRoot->data;
         preOrder(subTreeRoot->left);
         preOrder(subTreeRoot->right);
     }
@@ -347,7 +347,7 @@ void BST<T>::inOrder(Bnode<T>* subTreeRoot)
     {
         // left root right
         inOrder(subTreeRoot->left);
-        cout << subTreeRoot->data << "\t";
+        cout << subTreeRoot->data;
         inOrder(subTreeRoot->right);
     }
 }
@@ -384,7 +384,7 @@ void BST<T>::postOrder(Bnode<T>* subTreeRoot)
         // left right root
         postOrder(subTreeRoot->left);
         postOrder(subTreeRoot->right);
-        cout << subTreeRoot->data << "\t";
+        cout << subTreeRoot->data;
     }
 }
 
