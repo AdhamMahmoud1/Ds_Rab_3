@@ -16,13 +16,12 @@ Heap<Student> mx_students;
 int no_studs;
 
 void getFileData();
-// template<typename T>
-// void writeToFile(T data_structure);
 
 
 int main()
 {
   getFileData();
+
 
 
   cout << "Choose the Data Structure : \n";
@@ -78,9 +77,10 @@ int main()
             }
             break;
           case 4:
-            cout << "\n ";
+            cout << "\n\t";
             bst_students.inOrder();
             cout << endl;
+            bst_students.countStudentsByDepartment();
           
             break;
 
@@ -137,9 +137,10 @@ int main()
           }
           break;
         case 4:
-          cout << "\n ";
-          avl_students.inOrder();
-          cout << endl;
+            cout << "\n\t";
+            bst_students.inOrder();
+            cout << endl;
+            bst_students.countStudentsByDepartment();
         
           break;
         default:
@@ -269,60 +270,55 @@ int main()
 void getFileData(){
   fstream my_file;
 	my_file.open("input_files/file1.txt", ios::in);
-  string numberOfStud;
-  getline(my_file, numberOfStud);
-  no_studs = stoi(numberOfStud);
-  
-  cout << "Reading from the file \n";
-
-  while (no_studs--)
-  {
+  if(my_file.is_open()){
+    string numberOfStud;
+    getline(my_file, numberOfStud);
+    no_studs = stoi(numberOfStud);
     
-    string id_str, gpa_str;
-    Student st;
-    getline(my_file, id_str);
-    int id = stoi(id_str);
-    st.setID(id);
+    cout << "Reading from the file \n";
+    while (no_studs--)
+    {
+      
+      string id_str, gpa_str;
+      Student st;
+      getline(my_file, id_str);
+      int id = stoi(id_str);
+      st.setID(id);
 
 
 
-    string name;
-    getline(my_file, name);
-    st.setName(name);
+      string name;
+      getline(my_file, name);
+      st.setName(name);
 
-    
-    getline(my_file, gpa_str);
-    double gpa = stod(gpa_str);
-    st.setGPA(gpa);
-
-
-    string dep; 
-    getline(my_file, dep);
-    st.setDepartment(dep);
-    
-    avl_students.insert(st);
-    bst_students.insert(st);
-    mh_students.insert(st);
-    mx_students.insert(st);
+      
+      getline(my_file, gpa_str);
+      double gpa = stod(gpa_str);
+      st.setGPA(gpa);
 
 
-    cout << st;
-    // b_students.insert(st);
+      string dep; 
+      getline(my_file, dep);
+      st.setDepartment(dep);
+      
+      avl_students.insert(st);
+      bst_students.insert(st);
+      mh_students.insert(st);
+      mx_students.insert(st);
+
+
+      cout << st;
+      // b_students.insert(st);
+    }
+    cout << "finished reading from the file \n";
+
+    my_file.close();
+  }else{
+    cout << "File is does'nt Exist\n";
   }
-  cout << "finished reading from the file \n";
-  my_file.close();
 }
 
-/* template<typename T>
-void writeToFile(T data_structure){
-  fstream my_file;
-	my_file.open("input_files/file1.txt", ios::trunc);
-  int sz = no_studs;
-  my_file >> no_studs;
-  while (sz--)
-  {
-    my_file >> T;
-  }
-  
+void printStudentsPerDepartments(BST<Student> studs){
+  map<string, int> deps;
 
-} */
+}
