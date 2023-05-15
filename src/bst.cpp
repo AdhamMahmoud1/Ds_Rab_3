@@ -420,6 +420,7 @@ void BST<T>::countStudentsByDepartment(Bnode<T> * node)
 template <class T>
 void BST<T>::countStudentsByDepartment()
 {
+  noStudsInDeps.clear(); // Clear the map before counting
   countStudentsByDepartment(root);
   cout << "\nStudents per Departments:\n";
   for(auto i : noStudsInDeps){
