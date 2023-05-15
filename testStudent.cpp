@@ -356,7 +356,7 @@ void printTree(const string& dataStructureToPrintAllStudents)
   else if (dataStructureToPrintAllStudents == "AVL")
   {
     ::avl_students.inOrder();
-    ::bst_students.countStudentsByDepartment();
+    ::avl_students.countStudentsByDepartment();
   }
   else if (dataStructureToPrintAllStudents == "MIN_HEAP")
   {
