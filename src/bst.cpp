@@ -156,7 +156,6 @@ bool BST<T>::search(T key)
 {
     // search for item starting from root
     Bnode<T>* result = search(root, key);
-
     // if found return true else return false
     return (result == NULL)? false: true;
 }
@@ -399,3 +398,33 @@ void BST<T>::postOrder()
 {
     postOrder(root);
 }
+
+template <class T>
+void BST<T>::countStudentsByDepartment(Bnode<T> * node)
+{
+    if (node == NULL)
+    {
+        return; 
+    }
+    else
+    {
+        // left root right
+        countStudentsByDepartment(node->left);
+        
+        noStudsInDeps[node->data.department]++;
+        countStudentsByDepartment(node->right);
+    }
+
+}
+
+template <class T>
+void BST<T>::countStudentsByDepartment()
+{
+  countStudentsByDepartment(root);
+  cout << "\n\tStudents per Departments:\n";
+  for(auto i : noStudsInDeps){
+    cout << '\t' <<  i.first << " " << i.second << endl;
+  }
+}
+
+

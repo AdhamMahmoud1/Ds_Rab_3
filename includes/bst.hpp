@@ -20,7 +20,14 @@ class BST
 protected:
     /* Instance Attributes */
     Bnode<T>* root;
-    
+    map<string,int> noStudsInDeps;
+    Bnode<T>* insert(Bnode<T>* subTreeRoot, T item);
+    Bnode<T>* search(Bnode<T>* subTreeRoot, T key);
+    Bnode<T>* Delete(Bnode<T>* subTreeRoot, T item);
+    void preOrder(Bnode<T>* subTreeRoot);
+    void inOrder(Bnode<T>* subTreeRoot);
+    void postOrder(Bnode<T>* subTreeRoot);
+    void countStudentsByDepartment(Bnode<T> *);
 
 public:
     /* Constructors And Destructor */
@@ -34,26 +41,22 @@ public:
 
 
     /* Instance Methodss  */
-    Bnode<T>* insert(Bnode<T>* subTreeRoot, T item);
     void insert(T item);
 
-    Bnode<T>* search(Bnode<T>* subTreeRoot, T key);
     bool search(T key);
 
-    Bnode<T>* Delete(Bnode<T>* subTreeRoot, T item);
     void Delete(T item);
 
     Bnode<T>* findMaxmum(Bnode<T>* subTreeRoot);
     Bnode<T>* findMinimum(Bnode<T>* subTreeRoot);
 
-    void preOrder(Bnode<T>* subTreeRoot);
+    
     void preOrder();
     
-    void inOrder(Bnode<T>* subTreeRoot);
     void inOrder();
 
-    void postOrder(Bnode<T>* subTreeRoot);
     void postOrder();
 
+    void countStudentsByDepartment();
 
 };
