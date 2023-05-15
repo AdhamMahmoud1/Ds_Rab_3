@@ -270,6 +270,11 @@ string Utility::getValidGpaFromUser()
     return gpa;
 }
 
+//
+void convertIntoUpperCase(string& s)
+{
+    for(auto& c: s) c = toupper(c);
+}
 
 string Utility::getValidDeparmentFromUser()
 {
@@ -289,6 +294,9 @@ string Utility::getValidDeparmentFromUser()
         cout << "Please Enter A Valid Department  (e.g., Is, Cs, Ds) : ";
         getline(cin >> ws, dep);
     }
+    
+    // convert dep into upper case
+    convertIntoUpperCase(dep);
 
     return dep;
 }
