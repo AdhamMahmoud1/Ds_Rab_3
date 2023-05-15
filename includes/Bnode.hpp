@@ -1,14 +1,28 @@
+/**
+ * @file Bnode.hpp
+ * @author Fady kamal (20210282)
+ * @brief  Bnode Header file
+ * @version 0.1
+ * @date 2023-05-13
+ * 
+ */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
-template <typename T>
-struct Bnode
+
+
+template<class T>
+class Bnode
 {
+public:
+    /* Instance Attributes */
     T data;
-    Bnode<T> *left;
-    Bnode<T> *right;
-    Bnode(T d)
-    {
-        data = d;
-        left = nullptr;
-        right = nullptr;
-    }
+    Bnode* left;
+    Bnode* right;
+    Bnode<T>* node;
+
+    
+    /* Constructors And Destructor*/
+    Bnode(): left(NULL), right(NULL){};                             // Default
+    Bnode(T item): data(item), left(NULL), right(NULL){};           // Parametrized
+    ~Bnode(){};                                                     // Destructor
 };
