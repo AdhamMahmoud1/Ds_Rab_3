@@ -98,8 +98,8 @@ bool Utility::isValidGpa(string gpa)
 
 bool Utility::isValidId(string id)
 {
-    regex pattern("");
-    return true;
+    regex pattern("^\\d+$");
+    return regex_match(id, pattern);
 }
 
 bool Utility::isValidDepartment(string dep)
@@ -146,7 +146,7 @@ string Utility::getValidIdFromUser()
         cout << "!! Invalid Id !!" << "\n";
         cout << "###########################" << "\n";
 
-        cout << "Please Enter A Valid Id  (e.g., 20210282) : ";
+        cout << "Please Enter A Valid Id  (e.g., 1) : ";
         getline(cin >> ws, id);
     }
 
