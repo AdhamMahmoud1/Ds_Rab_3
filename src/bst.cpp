@@ -399,3 +399,15 @@ void BST<T>::postOrder()
 {
     postOrder(root);
 }
+
+
+template <class T>
+void BST<T>::countStudentsByDepartment()
+{
+  countStudentsByDepartment(root);
+  cout << "\n\tStudents per Departments:\n";
+  for(auto i : noStudsInDeps){
+    cout << '\t' <<  i.first << " " << i.second << endl;
+  }
+}
+
