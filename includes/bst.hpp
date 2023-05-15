@@ -54,6 +54,6 @@ public:
 
     void postOrder(Bnode<T>* subTreeRoot);
     void postOrder();
-
-
+    
+    void countStudentsByDepartment();
 };
