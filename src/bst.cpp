@@ -421,9 +421,9 @@ template <class T>
 void BST<T>::countStudentsByDepartment()
 {
   countStudentsByDepartment(root);
-  cout << "\n\tStudents per Departments:\n";
+  cout << "\nStudents per Departments:\n";
   for(auto i : noStudsInDeps){
-    cout << '\t' <<  i.first << " " << i.second << endl;
+    cout <<  i.first << " " << i.second << endl;
   }
 }
 
