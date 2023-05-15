@@ -317,8 +317,3 @@ void getFileData(){
     cout << "File is does'nt Exist\n";
   }
 }
-
-void printStudentsPerDepartments(BST<Student> studs){
-  map<string, int> deps;
-
-}
